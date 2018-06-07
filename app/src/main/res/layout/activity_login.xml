@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="@dimen/toolbar_elevation"
+            app:contentPaddingTop="-7dp"
+            app:contentPaddingLeft="-5dp"
+            app:contentPaddingRight="-5dp">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    app:theme="@style/AppTheme.Toolbar"
+                    app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+                    android:elevation="0dp"
+                    android:padding="0dp"/>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <!-- Login progress -->
+
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/login_form_padding">
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.github.andrewzolot.testauthapp.widgets.CustomTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.TextLabel"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:textColor="@color/colorGreyishBrown" />
+
+                </com.github.andrewzolot.testauthapp.widgets.CustomTextInputLayout>
+
+                <com.github.andrewzolot.testauthapp.widgets.CustomTextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.TextLabel"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_password"
+                        android:imeActionId="6"
+                        android:imeActionLabel="@string/action_sign_in_short"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:drawableRight="@drawable/ic_password"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:textColor="@color/colorGreyishBrown" />
+
+                </com.github.andrewzolot.testauthapp.widgets.CustomTextInputLayout>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="@dimen/button_elevation"
+                    app:cardUseCompatPadding="true">
+
+                    <Button
+                        style="@style/LoginButton"
+                        android:theme="@style/LoginButton"
+                        android:id="@+id/email_sign_in_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_sign_in"
+                        android:textStyle="bold"
+                        android:elevation="0dp" />
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>
